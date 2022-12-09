@@ -1,4 +1,4 @@
-$.getJSON('./json/21各省城镇基本医保基金支出.json', data=>{
+$.getJSON('https://cdn.jsdelivr.net/gh/sjh0020/pythonClassDemo@master/json/21各省城镇基本医保基金支出.json', data=>{
     const data_list = data;
     console.log(data_list)
     let new_data_list = data_list.map((item, index) => {
