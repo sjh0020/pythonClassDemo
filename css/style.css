@@ -12,17 +12,20 @@ div {
 ul {
     display: flex;
     flex-direction: row-reverse;
-    position: absolute;
+    position: relative;
     list-style-type: none;
-    top: 80vh;
-    left: 27vw;
+    justify-content: center;
+    top: 20vh;
 }
 .btn {
     position: relative;
     list-style-type: none;
     margin-right: 10px;
 }
-.now {
+.nowYear {
     background: #005eff;
     color: red;
+}
+.nowOptional {
+    background: #005eff;
 }
