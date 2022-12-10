@@ -7,26 +7,13 @@ import { getData as getDataOfWSRS } from './各省卫生人数.js';
 
 window.onload = eventHandle(2021);
 
-document.getElementById('y2021').addEventListener('click', () => {eventHandle(2021);});
-document.getElementById('y2020').addEventListener('click', () => {eventHandle(2020);});
-document.getElementById('y2019').addEventListener('click', () => {eventHandle(2019);});
-document.getElementById('y2018').addEventListener('click', () => {eventHandle(2018);});
-document.getElementById('y2017').addEventListener('click', () => {eventHandle(2017);});
-document.getElementById('y2016').addEventListener('click', () => {eventHandle(2016);});
-document.getElementById('y2015').addEventListener('click', () => {eventHandle(2015);});
-document.getElementById('y2014').addEventListener('click', () => {eventHandle(2014);});
-document.getElementById('y2013').addEventListener('click', () => {eventHandle(2013);});
-document.getElementById('y2012').addEventListener('click', () => {eventHandle(2012);});
-document.getElementById('y2011').addEventListener('click', () => {eventHandle(2011);});
-document.getElementById('y2010').addEventListener('click', () => {eventHandle(2010);});
-document.getElementById('y2009').addEventListener('click', () => {eventHandle(2009);});
-document.getElementById('y2008').addEventListener('click', () => {eventHandle(2008);});
-document.getElementById('y2007').addEventListener('click', () => {eventHandle(2007);});
-document.getElementById('y2006').addEventListener('click', () => {eventHandle(2006);});
-document.getElementById('y2005').addEventListener('click', () => {eventHandle(2005);});
-document.getElementById('y2004').addEventListener('click', () => {eventHandle(2004);});
-document.getElementById('y2003').addEventListener('click', () => {eventHandle(2003);});
-document.getElementById('y2002').addEventListener('click', () => {eventHandle(2002);});
+var lists = document.getElementsByClassName('y');
+for (var i = 0; i< 20; i++) {
+    (() => {
+        var y = lists[i].innerHTML;
+        lists[i].addEventListener('click', () => {eventHandle(y);})
+    })(i);
+}
 
 document.querySelector('#ybzc').addEventListener('click', () => {changeOption('ybzc')});
 document.querySelector('#wsrs').addEventListener('click', () => {changeOption('wsrs')});
