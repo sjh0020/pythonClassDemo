@@ -1,23 +1,63 @@
-import {getData as getData} from 'https://cdn.jsdelivr.net/gh/sjh0020/pythonClassDemo@master/js/各省医保支出.js';
+// import {getData as getDataOfYBZC} from 'https://cdn.jsdelivr.net/gh/sjh0020/pythonClassDemo@master/js/各省医保支出.js';
+import {getData as getDataOfYBZC} from './各省医保支出.js';
+import { getData as getDataOfZRK } from './各省总人口.js';
+import { getData as getDataOfWSRS } from './各省医师数.js';
 
-document.querySelector('#y2021').onclick = getData(2021);
+document.querySelector('#y2021').onclick = changeOption('zrk');
 
-document.querySelector('#y2021').addEventListener('click', () => {show(2021)});
-document.querySelector('#y2020').addEventListener('click', () => {show(2020)});
-document.querySelector('#y2019').addEventListener('click', () => {show(2019)});
-document.querySelector('#y2018').addEventListener('click', () => {show(2018)});
-document.querySelector('#y2017').addEventListener('click', () => {show(2017)});
-document.querySelector('#y2016').addEventListener('click', () => {show(2016)});
-document.querySelector('#y2015').addEventListener('click', () => {show(2015)});
-document.querySelector('#y2014').addEventListener('click', () => {show(2014)});
-document.querySelector('#y2013').addEventListener('click', () => {show(2013)});
-document.querySelector('#y2012').addEventListener('click', () => {show(2012)});
-document.querySelector('#y2011').addEventListener('click', () => {show(2011)});
+document.querySelector('#ybzc').addEventListener('click', () => {changeOption('ybzc')});
+document.querySelector('#wsrs').addEventListener('click', () => {changeOption('wsrs')});
+document.querySelector('#zrk').addEventListener('click', () => {changeOption('zrk')});
 
-function show(y) {
-    getData(y);
-    var class_now = document.getElementsByClassName('now');
-    class_now[0].classList.remove('now');
-    var add_class = document.getElementById(`y${y}`);
-    add_class.classList.add('now');
+function changeYear(id) {
+    var class_now = document.getElementsByClassName('nowYear');
+    class_now[0].classList.remove('nowYear');
+    var add_class = document.getElementById(`${id}`);
+    add_class.classList.add('nowYear');
+}
+
+function changeOption(id) {
+    var class_now = document.getElementsByClassName('nowOptional');
+    class_now[0].classList.remove('nowOptional');
+    var add_class = document.getElementById(id);
+    add_class.classList.add('nowOptional');
+    var nowOptionId = id;
+    if (nowOptionId == 'ybzc') {
+        document.querySelector('#y2021').onclick = getDataOfYBZC(2021);
+        changeYear('y2021')
+        var lists = document.getElementsByClassName('y');
+        for (var i = 0; i < lists.length; i++) {
+            (function() {
+                var id = lists[i].id;
+                var y = lists[i].innerHTML;
+                lists[i].addEventListener('click', () => {getDataOfYBZC(y);changeYear(id);});
+            })(i);
+        }
+    };
+    
+    if (nowOptionId == 'zrk') {
+        document.querySelector('#y2021').onclick = getDataOfZRK(2021);
+        changeYear('y2021')
+        var lists = document.getElementsByClassName('y');
+        for (var i = 0; i < lists.length; i++) {
+            (function() {
+                var id = lists[i].id;
+                var y = lists[i].innerHTML;
+                lists[i].addEventListener('click', () => {getDataOfZRK(y);changeYear(id);});
+            })(i);
+        }
+    };
+
+    if (nowOptionId == 'wsrs') {
+        document.querySelector('#y2021').onclick = getDataOfWSRS(2021);
+        changeYear('y2021')
+        var lists = document.getElementsByClassName('y');
+        for (var i = 0; i < lists.length; i++) {
+            (function() {
+                var id = lists[i].id;
+                var y = lists[i].innerHTML;
+                lists[i].addEventListener('click', () => {getDataOfWSRS(y);changeYear(id);});
+            })(i);
+        }
+    };
 }
