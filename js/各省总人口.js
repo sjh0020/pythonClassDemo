@@ -1,6 +1,6 @@
 export function getData(y) {
     // var filename = 'https://cdn.jsdelivr.net/gh/sjh0020/pythonClassDemo@master/json/各省城镇基本医保基金支出/' + y + '.json'
-    var filename = './json/各省城镇基本医保基金支出/' + y + '.json'
+    var filename = './json/各省总人口/' + y + '.json'
     $.getJSON(filename, data => {
         showData(data, y);
     });
@@ -15,7 +15,7 @@ function showData(data, y) {
     var map_Chart = echarts.init(document.getElementById('map'));
     var option = {
         title: {
-            text: y + '年各省城基镇本医保基金支出（万元）',
+            text: y + '年各省总人口（万人）',
             x: 'center'
         },
         tooltip: {
@@ -31,7 +31,7 @@ function showData(data, y) {
                 showHtml += `
                 <span style="display: flex;">
                     ${'省份'}：${params.name}</br>
-                    ${'支出'}：${num}${'万元'}
+                    ${'总人口'}：${num}${'万'}
                 </span>
             `;
                 return showHtml;
