@@ -3,24 +3,20 @@ div {
     justify-content: center;
     align-items: center;
 }
-#map {
-    top: 10vh;
-    left: 25vw;
-    height: 60vh;
-    width: 50vw;
-}
 ul {
     display: flex;
     flex-direction: row-reverse;
     position: relative;
     list-style-type: none;
     justify-content: center;
+    white-space: nowrap;
     top: 10vh;
+    height: auto;
+    width: 98%;
 }
 .btn {
     position: relative;
-    list-style-type: none;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 .nowYear {
     background: #005eff;
@@ -29,6 +25,27 @@ ul {
 .nowOptional {
     background: #005eff;
 }
-#optional {
+#map {
     top: 10vh;
+    left: 25vw;
+    height: 60vh;
+    width: 50vw;
+}
+#year {
+    justify-content: none;
+    align-items: center;
+    width: 30vw;
+    overflow-x: scroll;
+    left: 35vw;
+    margin-right: 0;
+}
+#y2021 {
+    margin-right: 40vw;
+}
+#optional {
+    justify-content: center;
+    align-items: center;
+    top: 10vh;
+    width: 20vw;
+    left: 37vw;
 }
