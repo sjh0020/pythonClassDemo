@@ -1,9 +1,5 @@
-// import {getData as getDataOfYBZC} from 'https://cdn.jsdelivr.net/gh/sjh0020/pythonClassDemo@master/js/各省医保支出.js';
-// import { getData as getDataOfZRK } from 'https://cdn.jsdelivr.net/gh/sjh0020/pythonClassDemo@master/js/各省总人口.js';
-// import { getData as getDataOfWSRS } from 'https://cdn.jsdelivr.net/gh/sjh0020/pythonClassDemo@master/js/各省卫生人数.js';
-import {getData as getDataOfYBZC} from './各省医保支出.js';
-import { getData as getDataOfZRK } from './各省总人口.js';
-import { getData as getDataOfWSRS } from './各省卫生人数.js';
+// import {getData} from 'https://cdn.jsdelivr.net/gh/sjh0020/pythonClassDemo@master/js/getdata.js';
+import { getData } from './getdata.js';
 
 window.onload = eventHandle(2021);
 
@@ -22,13 +18,13 @@ document.querySelector('#zrk').addEventListener('click', () => {changeOption('zr
 function eventHandle(y) {
     var option_now = document.getElementsByClassName('nowOptional')[0].id;
     if (option_now == 'ybzc') {
-        getDataOfYBZC(y);
+        getData(y, './json/各省城镇基本医保基金支出/', '年各省城基镇本医保基金支出（万元）', '支出', '万元');
         changeYear(`y${y}`);
     } else if (option_now == 'zrk') {
-        getDataOfZRK(y);
+        getData(y, './json/各省总人口/', '年各省总人口（万人）', '总人口', '万');
         changeYear(`y${y}`);
     } else if (option_now == 'wsrs') {
-        getDataOfWSRS(y);
+        getData(y, './json/各省卫生人员数/', '年各省卫生人员数量（万人）', '卫生人员数量', '万');
         changeYear(`y${y}`);
     }
 }
