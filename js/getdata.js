@@ -1,13 +1,23 @@
+/**
+ * 
+ * @param {*} y 年份
+ * @param {*} filepath json文件相对于网页根目录的路径
+ * @param {*} titletext 地图标题文本
+ * @param {*} labeltextfront 每个悬浮框第二行冒号前的文本
+ * @param {*} labeltextback 每个悬浮框第二行数字后的文本
+ */
+
 export function getData(y, filepath, titletext, labeltextfront, labeltextback) {
     // var filename = 'https://cdn.jsdelivr.net/gh/sjh0020/pythonClassDemo@master/json/各省城镇基本医保基金支出/' + y + '.json'
     // var filename = './json/各省总人口/' + y + '.json'
     var filename = filepath + y + '.json';
     $.getJSON(filename, data => {
-        showData(data, y, titletext, labeltextfront, labeltextback);
+        var gd = data[18].value;
+        showData(data, y, titletext, labeltextfront, labeltextback, gd);
     });
 }
 
-function showData(data, y, titletext, labeltextfront, labeltextback) {
+function showData(data, y, titletext, labeltextfront, labeltextback, gd) {
     const data_list = data;
     let new_data_list = data_list.map((item, index) => {
         return item.value;
@@ -32,13 +42,12 @@ function showData(data, y, titletext, labeltextfront, labeltextback) {
                 }
                 showHtml += `
                 <span style="display: flex;">
-                    ${'省份'}：${params.name}</br>
-                    <!-- ${'总人口'}：${num}${'万'} -->
-                    ${labeltextfront}：${num}${labeltextback}
+                    ${'省份: ' + params.name + '<br>'}
+                    ${labeltextfront + `: ` + num + labeltextback + `<br>`}
+                    ${'vs 广东省: ' + gd + labeltextback}
                 </span>
             `;
                 return showHtml;
-
             }
         },
 

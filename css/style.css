@@ -1,46 +1,18 @@
-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #eee;
 }
 ul {
     display: flex;
     flex-direction: row-reverse;
     position: relative;
     list-style-type: none;
-    justify-content: center;
+    justify-content: flex-start;
     white-space: nowrap;
     top: 10vh;
     height: auto;
     width: 98%;
-}
-.btn {
-    position: relative;
-    margin-right: 5px;
-}
-.nowYear {
-    background: #005eff;
-    color: red;
-}
-.nowOptional {
-    background: #005eff;
-}
-#map {
-    top: 10vh;
-    left: 25vw;
-    height: 60vh;
-    width: 50vw;
-}
-#year {
-    justify-content: none;
-    align-items: center;
-    width: 30vw;
-    overflow-x: scroll;
-    left: 35vw;
-    margin-right: 0;
-}
-#y2021 {
-    margin-right: 40vw;
 }
 #optional {
     justify-content: center;
@@ -48,4 +20,161 @@ ul {
     top: 10vh;
     width: 20vw;
     left: 37vw;
+}
+.btn {
+    position: relative;
+    margin-right: 2px;
+    border: 1px solid black;
+    border-radius: 5%;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+    -ms-border-radius: 5%;
+    -o-border-radius: 5%;
+}
+.btn:hover {
+    background-color: #005eff;
+}
+#optional {
+    /* background-color: gray; */
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+    width: 50vw;
+    height: 30px;
+    left: 25vw;
+    /* border-left: 1px solid gray; */
+    box-shadow: -8px -8px 16px -10px rgb(255, 255, 255), 8px 8px 16px -10px rgba(0, 0, 0, .15);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+#optional button {
+    border-top-right-radius: 30%;
+    margin-right: 5px;
+    /* width: 100%; */
+    display: block;
+    outline: none;
+    font-size: 20px;
+    color: #999;
+    border: 0;
+    background: linear-gradient(135deg, rgba(230, 230, 230, 1) 0%, rgba(246, 246, 246, 1) 100%);
+    box-shadow: -4px -4px 10px -8px rgba(255, 255, 255, 1), 4px 4px 10px -8px rgba(0, 0, 0, .3);
+    /* border-top: 1px solid gray; */
+}
+#optional button:active {
+    box-shadow: -4px -4px 10px -8px rgba(255, 255, 255, 1) inset, 4px 4px 10px -8px rgba(0, 0, 0, .3) inset;
+}
+#optional button:hover {
+    background-color: rgb(87, 133, 241);
+}
+#zrk {
+    margin-left: 15px;
+}
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#map {
+    top: 10vh;
+    left: 25vw;
+    height: 60vh;
+    width: 50vw;
+    z-index: 100;
+    /* background-color: gray; */
+}
+.yearbox {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+    height: auto;
+    margin: 20px auto 0;
+}
+#year {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    margin-right: 60px;
+    padding: 0;
+}
+#year::after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    display: flex;
+    top: calc(50% - 2.5px);
+    width: 100%;
+    height: 5px;
+    z-index: -100;
+    background-color: rgba(227, 132, 24, 1);
+}
+.up{
+    position: relative;
+    top: -22px;
+}
+.down{
+    position: relative;
+    top: 31px;
+}
+.nowYear {
+    background: #005eff;
+    color: red;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -11px;
+    left: 18px;
+    width: 10px;
+    height: 10px;
+    background-color: grey;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.dot {
+    content: '';
+    position: absolute;
+    background-color: grey;
+    width: 2px;
+    height: 15px;
+    left: 4px;
+    z-index: -1;
+}
+.box:nth-child(2n) .dot {
+    top: 8px;
+}
+.box:nth-child(2n+1) .dot {
+    top: -11px;
+}
+.arrow {
+    position: absolute;
+    width: 20px;
+    height: 5px;
+    top: 7px;
+    right: 0;
+    margin-right: -1.5px;
+    background-color: rgba(227, 132, 24, 1);
+    rotate: 45deg;
+    z-index: -200;
+}
+.arrow::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 5px;
+    top: 10px;
+    right: -10px;
+    background-color: rgba(227, 132, 24, 1);
+    rotate: 90deg;
 }

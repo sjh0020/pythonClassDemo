@@ -11,39 +11,103 @@
 <body>
     <ul id="optional">
         <li><button class="btn" id="ybzc">医保支出</button></li>
+        <li><button class="btn" id="wsjg">卫生机构数</button></li>
         <li><button class="btn" id="wsrs">卫生人数</button></li>
+        <li><button class="btn" id="csl">出生率</button></li>
         <li><button class="btn nowOptional" id="zrk">总人口</button></li>
     </ul>
     <div class="map" id="map"></div>
-    <ul id="year">
-        <li><button class="btn y nowYear" id="y2021">2021</button></li>
-        <li><button class="btn y" id="y2020">2020</button></li>
-        <li><button class="btn y" id="y2019">2019</button></li>
-        <li><button class="btn y" id="y2018">2018</button></li>
-        <li><button class="btn y" id="y2017">2017</button></li>
-        <li><button class="btn y" id="y2016">2016</button></li>
-        <li><button class="btn y" id="y2015">2015</button></li>
-        <li><button class="btn y" id="y2014">2014</button></li>
-        <li><button class="btn y" id="y2013">2013</button></li>
-        <li><button class="btn y" id="y2012">2012</button></li>
-        <li><button class="btn y" id="y2011">2011</button></li>
-        <li><button class="btn y" id="y2010">2010</button></li>
-        <li><button class="btn y" id="y2009">2009</button></li>
-        <li><button class="btn y" id="y2008">2008</button></li>
-        <li><button class="btn y" id="y2007">2007</button></li>
-        <li><button class="btn y" id="y2006">2006</button></li>
-        <li><button class="btn y" id="y2005">2005</button></li>
-        <li><button class="btn y" id="y2004">2004</button></li>
-        <li><button class="btn y" id="y2003">2003</button></li>
-        <li><button class="btn y" id="y2002">2002</button></li>
-    </ul>
+    <div class="yearbox">
+        <ul id="year">
+            <li class="box">
+                <button class="btn y up nowYear" id="y2021">2021</button>
+                <div class="center"><span class="dot"></span></div>
+            </li>
+            <li class="box">
+                <button class="btn y down" id="y2020">2020</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y up" id="y2019">2019</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y down" id="y2018">2018</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y up" id="y2017">2017</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y down" id="y2016">2016</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y up" id="y2015">2015</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y down" id="y2014">2014</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y up" id="y2013">2013</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y down" id="y2012">2012</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y up" id="y2011">2011</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y down" id="y2010">2010</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y up" id="y2009">2009</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y down" id="y2008">2008</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y up" id="y2007">2007</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y down" id="y2006">2006</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y up" id="y2005">2005</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y down" id="y2004">2004</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y up" id="y2003">2003</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li class="box">
+                <button class="btn y down" id="y2002">2002</button>
+                <div class="center"><span class="dot"></span>
+            </li>
+            <li><div class="arrow"></div></li>
+        </ul>
+    </div>
 </body>
 
 <!-- CDN加速 -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/sjh0020/pythonClassDemo@master/js/china.js"></script>
 <script src='https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js'></script>
-<script type='module' src='https://cdn.jsdelivr.net/gh/sjh0020/pythonClassDemo@master/js/各省医保支出.js'></script>
 <script type='module' src='https://cdn.jsdelivr.net/gh/sjh0020/pythonClassDemo@master/js/app.js'></script> -->
 
 <!-- 本地测试用 -->
@@ -51,5 +115,5 @@
 <script type='text/javascript' src='./js/china.js'></script>
 <script src="./js/jquery.min.js"></script>
 <script type='module' src='./js/app.js'></script>
-<!-- <script src="./js/spacingjs.js" defer></script> -->
+<script src="./js/spacingjs.js" defer></script>
 </html>
