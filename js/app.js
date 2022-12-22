@@ -14,7 +14,7 @@ for (var i = 0; i< 20; i++) {
 }
 
 // 使用for循环给上面的选项卡按钮添加事件监听器(EventListener), 监听click事件并调用changeOption函数, 并传入对应选项名作为参数
-var option_lists = ['ybzc', 'wsrs', 'zrk', 'csl', 'wsjg']; // 定义一个写有所有选项的列表(Array)
+var option_lists = ['ybzc', 'wsrs', 'zrk', 'csl', 'wsjg', 'ysrs']; // 定义一个写有所有选项的列表(Array)
 for (var i = 0; i < option_lists.length; i++) {
     (() => {
         var btn_option = document.getElementById(option_lists[i]);
@@ -42,8 +42,12 @@ function eventHandler(y) {
     } else if (option_now == 'wsjg') {
         getData(y, 4, '年各省卫生机构数量（个）', '机构数', '个');
         changeYear(`y${y}`);
-    };
+    } else if (option_now == 'ysrs') {
+        getData(y, 5, '年各省职业医师人数（万）', '职业医师人数', '万');
+        changeYear(`y${y}`);
+    }
 };
+
 /* 
 先移除现有标签中有nowOptional属性的,
 并且清空对背景色的设置,
