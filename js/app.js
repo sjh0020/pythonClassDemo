@@ -28,19 +28,19 @@ for (var i = 0; i < option_lists.length; i++) {
 function eventHandler(y) {
     var option_now = document.getElementsByClassName('nowOptional')[0].id; // 获取当前选项id, 用作后面判断
     if (option_now == 'ybzc') {
-        getData(y, './json/各省城镇基本医保基金支出/', '年各省城基镇本医保基金支出（万元）', '支出', '万元');
+        getData(y, 2, '年各省城基镇本医保基金支出（万元）', '支出', '万元');
         changeYear(`y${y}`);
     } else if (option_now == 'zrk') {
-        getData(y, './json/各省总人口/', '年各省总人口（万人）', '总人口', '万');
+        getData(y, 0, '年各省总人口（万人）', '总人口', '万');
         changeYear(`y${y}`);
     } else if (option_now == 'wsrs') {
-        getData(y, './json/各省卫生人员数/', '年各省卫生人员数量（万人）', '卫生人员数量', '万');
+        getData(y, 1, '年各省卫生人员数量（万人）', '卫生人员数量', '万');
         changeYear(`y${y}`);
     } else if (option_now == 'csl') {
-        getData(y, './json/各省人口出生率/', '年各省人口出生率（‰）', '出生率', '‰');
+        getData(y, 3, '年各省人口出生率（‰）', '出生率', '‰');
         changeYear(`y${y}`);
     } else if (option_now == 'wsjg') {
-        getData(y, './json/各省卫生机构数/', '年各省卫生机构数量（个）', '机构数', '个');
+        getData(y, 4, '年各省卫生机构数量（个）', '机构数', '个');
         changeYear(`y${y}`);
     };
 };

@@ -7,22 +7,26 @@
  * @param {*} labeltextback 每个悬浮框第二行数字后的文本
  */
 
-export function getData(y, filepath, titletext, labeltextfront, labeltextback) {
-    // var filename = 'https://cdn.jsdelivr.net/gh/sjh0020/pythonClassDemo@master/json/各省城镇基本医保基金支出/' + y + '.json'
-    // var filename = './json/各省总人口/' + y + '.json'
-    var filename = filepath + y + '.json';
-    $.getJSON(filename, data => {
-        var gd = data[18].value;
-        showData(data, y, titletext, labeltextfront, labeltextback, gd);
-    });
-}
+export function getData(y, option, titletext, labeltextfront, labeltextback) {
+    $.getJSON('./json/all.json', data => {
+        var json_data = data;
+        var num = 2021 - y;
+        var gd = json_data[option]['data'][18]['value'][num];
+        showData(json_data, y, option, titletext, labeltextfront, labeltextback, gd, num);
+    })
+};
 
-function showData(data, y, titletext, labeltextfront, labeltextback, gd) {
-    const data_list = data;
-    let new_data_list = data_list.map((item, index) => {
-        return item.value;
-    });
-    let data_list_max = Math.max(...new_data_list);
+function showData(json_data, y, option,  titletext, labeltextfront, labeltextback, gd, n) {
+    let data_list = [];
+    for (var i = 0; i < 31; i++) {
+        data_list[i] = json_data[option]['data'][i]['value'][n];
+    }
+    let data = json_data[option]['data'];
+    for (var i = 0; i < 31; i++) {
+        var value = json_data[option]['data'][i]['value'][n];
+        data[i]['value'] = value;
+    }
+    let data_list_max = Math.max(...data_list);
     var map_Chart = echarts.init(document.getElementById('map'));
     var option = {
         title: {
@@ -85,7 +89,7 @@ function showData(data, y, titletext, labeltextfront, labeltextback, gd) {
                     }
                 }
             },
-            data: data_list
+            data: data
         }]
     };
     map_Chart.setOption(option);
