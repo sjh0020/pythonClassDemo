@@ -1,7 +1,7 @@
 /**
  * 
  * @param {*} y 年份
- * @param {*} filepath json文件相对于网页根目录的路径
+ * @param {*} option 在all.json中序列
  * @param {*} titletext 地图标题文本
  * @param {*} labeltextfront 每个悬浮框第二行冒号前的文本
  * @param {*} labeltextback 每个悬浮框第二行数字后的文本
@@ -10,7 +10,7 @@
 export function getData(y, option, titletext, labeltextfront, labeltextback) {
     $.getJSON('./json/all.json', data => {
         var json_data = data;
-        var num = 2021 - y;
+        var num = y - 2002;
         var gd = json_data[option]['data'][18]['value'][num];
         showData(json_data, y, option, titletext, labeltextfront, labeltextback, gd, num);
     })
